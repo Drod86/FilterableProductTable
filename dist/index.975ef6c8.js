@@ -2948,11 +2948,12 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _app = require("./App");
 var _appDefault = parcelHelpers.interopDefault(_app);
+var _stylesCss = require("./styles.css");
 const container = document.getElementById("app");
 const root = (0, _client.createRoot)(container);
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 7,
+    lineNumber: 8,
     columnNumber: 13
 }, undefined));
 
@@ -2961,7 +2962,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./styles.css":"lW6qc"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27394,28 +27395,49 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>FilterableProductTable);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _searchBar = require("./SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _productTable = require("./ProductTable");
 var _productTableDefault = parcelHelpers.interopDefault(_productTable);
+var _s = $RefreshSig$();
 function FilterableProductTable({ products }) {
+    _s();
+    const [filterText, setFilterText] = (0, _react.useState)("");
+    const [inStockOnly, setInStockOnly] = (0, _react.useState)(false);
+    // function handleChangeText(e){
+    //   setFilterText(e.target.value);
+    //   console.log(filterText);
+    // }
+    // function handleChangeInStockOnly(e){
+    //   e.target.checked && setInStockOnly(!inStockOnly);
+    // }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                filterText: filterText,
+                onChangeText: setFilterText,
+                inStockOnly: inStockOnly,
+                onChangeInStockOnly: setInStockOnly
+            }, void 0, false, {
                 fileName: "src/components/FilterableProductTable.js",
-                lineNumber: 6,
+                lineNumber: 18,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productTableDefault.default), {
-                products: products
+                products: products,
+                filterText: filterText,
+                inStockOnly: inStockOnly
             }, void 0, false, {
                 fileName: "src/components/FilterableProductTable.js",
-                lineNumber: 7,
+                lineNumber: 23,
                 columnNumber: 5
             }, this)
         ]
     }, void 0, true);
 }
+_s(FilterableProductTable, "OoxPjjE0aYxjeYZe4cEwdeXSr2k=");
 _c = FilterableProductTable;
 var _c;
 $RefreshReg$(_c, "FilterableProductTable");
@@ -27425,7 +27447,7 @@ $RefreshReg$(_c, "FilterableProductTable");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SearchBar":"1Auyk","./ProductTable":"hLCBn"}],"1Auyk":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SearchBar":"1Auyk","./ProductTable":"hLCBn","react":"21dqq"}],"1Auyk":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5e6a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27436,36 +27458,45 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>SearchBar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-function SearchBar({}) {
+function SearchBar({ onChangeText, inStockOnly, onChangeInStockOnly }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: "text",
+                onChange: (e)=>onChangeText(e.target.value),
                 placeholder: "Search..."
             }, void 0, false, {
                 fileName: "src/components/SearchBar.js",
                 lineNumber: 3,
                 columnNumber: 5
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "flex",
+                    gap: "5px"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        id: "filter",
+                        type: "checkbox",
+                        onClick: ()=>onChangeInStockOnly(!inStockOnly)
+                    }, void 0, false, {
+                        fileName: "src/components/SearchBar.js",
+                        lineNumber: 5,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        htmlFor: "filter",
+                        children: "Only show products in stock"
+                    }, void 0, false, {
+                        fileName: "src/components/SearchBar.js",
+                        lineNumber: 6,
+                        columnNumber: 5
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/SearchBar.js",
                 lineNumber: 4,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                id: "filter",
-                type: "checkbox"
-            }, void 0, false, {
-                fileName: "src/components/SearchBar.js",
-                lineNumber: 5,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                for: "filter",
-                children: "Only show products in stock"
-            }, void 0, false, {
-                fileName: "src/components/SearchBar.js",
-                lineNumber: 6,
                 columnNumber: 5
             }, this)
         ]
@@ -27499,17 +27530,20 @@ var _productCategoryRow = require("./ProductCategoryRow");
 var _productCategoryRowDefault = parcelHelpers.interopDefault(_productCategoryRow);
 var _productRow = require("./ProductRow");
 var _productRowDefault = parcelHelpers.interopDefault(_productRow);
-function ProductTable({ products }) {
+function ProductTable({ products, filterText, inStockOnly }) {
     let rows = [];
     let lastCategory = null;
     for(let i = 0; i < products.length; i++){
-        let { category, name, price, stock } = products[i];
+        let { category, name, stocked } = products[i];
+        const lc = (text)=>text.toLowerCase();
+        if (filterText !== "" && !lc(category).startsWith(lc(filterText)) && !lc(name).startsWith(lc(filterText))) continue;
         if (category !== lastCategory) {
+            if (inStockOnly && !stocked) continue;
             let catRow = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCategoryRowDefault.default), {
                 category: category
             }, category, false, {
                 fileName: "src/components/ProductTable.js",
-                lineNumber: 12,
+                lineNumber: 21,
                 columnNumber: 20
             }, this);
             rows = [
@@ -27522,10 +27556,13 @@ function ProductTable({ products }) {
             product: products[i]
         }, name, false, {
             fileName: "src/components/ProductTable.js",
-            lineNumber: 16,
+            lineNumber: 25,
             columnNumber: 15
         }, this);
-        rows = [
+        inStockOnly ? stocked ? rows = [
+            ...rows,
+            row
+        ] : rows : rows = [
             ...rows,
             row
         ];
@@ -27539,38 +27576,38 @@ function ProductTable({ products }) {
                             children: "Name"
                         }, void 0, false, {
                             fileName: "src/components/ProductTable.js",
-                            lineNumber: 24,
+                            lineNumber: 38,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                             children: "Price"
                         }, void 0, false, {
                             fileName: "src/components/ProductTable.js",
-                            lineNumber: 25,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/ProductTable.js",
-                    lineNumber: 23,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/ProductTable.js",
-                lineNumber: 22,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
                 children: rows.map((row)=>row)
             }, void 0, false, {
                 fileName: "src/components/ProductTable.js",
-                lineNumber: 28,
+                lineNumber: 42,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/ProductTable.js",
-        lineNumber: 21,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }
@@ -27674,6 +27711,6 @@ $RefreshReg$(_c, "ProductRow");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequire10e7")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lW6qc":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequire10e7")
 
 //# sourceMappingURL=index.975ef6c8.js.map
