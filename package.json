@@ -1,8 +1,8 @@
 {
-  "name": "react_app_template",
+  "name": "filterable-product-table",
   "version": "1.0.0",
-  "description": "React app start files with parcel",
-  "repository": "https://github.com/Drod86/resume-generator.git",
+  "description": "Recieves user input and filters product data from the database according to the users input and displays a table of the products that match the search parameters",
+  "repository": "https://github.com/Drod86/FilterableProductTable",
   "author": "Daniel Rodriguez <daniel.r.rodriguez86@gmail.com>",
   "license": "MIT",
   "source": "src/index.html",

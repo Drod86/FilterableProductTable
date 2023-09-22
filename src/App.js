@@ -1,3 +1,14 @@
-export function App() {
-  return <h1>Edit Initial Set up</h1>;
+const PRODUCTS = [
+  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
+  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
+  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
+  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
+  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
+  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+];
+
+import FilterableProductTable from "./components/FilterableProductTable";
+
+export default function App() {
+  return <FilterableProductTable products={PRODUCTS} />
 }
